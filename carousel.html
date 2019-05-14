@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    
+    .carousel-inner div {
+  margin: auto;
+}
+
+body {
+  background: green;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+iframe {
+  background: white;
+}
+
+
+
+
+</style>
+    <p id="food"></p>
+    
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="mx-lg-5 px-lg-5">
+            <div class='maxbye1 row'></div>
+  
+              <!-- <div class='col-lg-3 offset-lg-1 d-flex h-100 align-items-center justify-content-center'>
+                <blockquote class="twitter-tweet" data-lang="en-gb"><p lang="en" dir="ltr">Get that popcorn and tequila out again, cause we&#39;re back with our second WORLDWIDE <a href="https://twitter.com/HobbsAndShaw?ref_src=twsrc%5Etfw">@HobbsAndShaw</a> trailer. <br>The biggest and baddest showdown of the summer hits AUGUST 2nd. <br>Until then, cheers &amp; enjoy 🍿🥃<a href="https://twitter.com/hashtag/HobbsAndShaw?src=hash&amp;ref_src=twsrc%5Etfw">#HobbsAndShaw</a><a href="https://twitter.com/SevenBucksProd?ref_src=twsrc%5Etfw">@SevenBucksProd</a> <a href="https://t.co/TUCbE8urSQ">pic.twitter.com/TUCbE8urSQ</a></p>&mdash; Dwayne Johnson (@TheRock) <a href="https://twitter.com/TheRock/status/1118844208452788224?ref_src=twsrc%5Etfw">18 April 2019</a></blockquote>
+              </div> -->
+            
+          </div>
+        </div>
+
+
+        <div class="carousel-item">
+          <section id='tweetPage2'>
+            <h1>test data.</h1>
+          </section>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- <script async src="http://www.instagram.com/embed.js"></script> -->
+    <script type="text/javascript" src="http://www.instagram.com/embed.js"></script>
+    <script type="text/javascript" src="js/tabletop.js"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery.bcSwipe.min.js"></script> 
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    
+      
+      $(document).ready(function() {
+        $('.carousel').bcSwipe({ threshold: 50 });
+      });
+
+      
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1Z-SoG-sG5wDFcI9UFstDt2pB5RgqPUWaR22sZABwasA/pubhtml';
+
+      
+
+      function init() {
+        Tabletop.init({ 
+          key: public_spreadsheet_url,
+          callback: showInfo,
+          simpleSheet: true 
+        });
+      }
+
+      window.addEventListener('DOMContentLoaded', init)
+      
+      function showInfo(data) {
+        // console.log(data).l
+        for (var i = 0; i < data.length; i++){
+          $('.maxbye1').append("<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[i]["First Page"] + "</div>");
+        }
+       
+        // for (var i = 0; i < data.length; i++){
+        //   $('.maxbye1').append("<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[i]["First Page"] + "</div>");
+        // }
+       
+        twttr.widgets.load();
+        window.instgrm.Embeds.process();
+
+
+        var height = $(window).height();  //getting windows height
+        jQuery('#carouselExampleControls').css('height',height+'px');   //and setting height of carousel
+
+      }
+
+      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");        
+    </script>
+  </body>
+</html>
