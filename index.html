@@ -16,18 +16,20 @@ body {
     width: 5%;
 }
 
-iframe, object, embed {
-background-color: white;
+iframe  {
+    background: white;
+    border-radius: 5px;
 }
 
 
 
 
 </style>
-
-    <div class="mx-lg-5 px-lg-5">
-      <div class='maxbye1 row'></div>
-    </div>
+    <div class='px-lg-5 socialMediaContainer'></div>
+      <!-- <div class="mx-lg-5 px-lg-5">
+        <div class='maxbye1 row'></div>
+      </div> -->
+    
 
     <!-- <script async src="http://www.instagram.com/embed.js"></script> -->
     <script type="text/javascript" src="http://www.instagram.com/embed.js"></script>
@@ -55,14 +57,14 @@ background-color: white;
       window.addEventListener('DOMContentLoaded', init)
       
       function showInfo(data) {
-        // console.log(data).l
-          for (var j = 0; j < Object.keys(data[0]).length; j++){
-        
+
+        for (var j = 0; j < Object.keys(data[0]).length; j++){
+          var content = '';
           for (var k = 0; k < data.length; k++){
-              $('.maxbye1').append("<div style='background: red' class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>");
-            }
+            content += "<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>";
+          }
+          $('.socialMediaContainer').append("<div class='row page" + j +  "'>" + content + "</div>");
         }
-       
         twttr.widgets.load();
         window.instgrm.Embeds.process();
 
