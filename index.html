@@ -2,15 +2,69 @@
 <html>
   <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <style>
-    
-    .carousel-inner div {
+
+@font-face {
+  font-family: siblings;
+  src: url(css/siblings.ttf);
+}    
+
+.carousel-inner div {
   margin: auto;
 }
 
 body {
-  background: green;
+  background: linear-gradient(#42d5dc, yellow);
+  background-size: cover;
+  height: 110vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: '#42d5dc';
+  background-repeat:no-repeat;
+  background: -webkit-linear-gradient(#5bd1d7, #a6dfe2);
+  background: -moz-linear-gradient(#5bd1d7, #a6dfe2);
+  background: -ms-linear-gradient(#5bd1d7, #a6dfe2);
+  background: -o-linear-gradient(#5bd1d7, #a6dfe2);
+  background: linear-gradient(#5bd1d7, #a6dfe2);
+  font-family: 'Roboto', sans-serif;
 }
+
+.navbar{
+  cursor: pointer;
+  background: -webkit-linear-gradient(#1db3ba9e, #42d5dc00);
+  background: -moz-linear-gradient(#1db3ba9e, #42d5dc00);
+  background: -ms-linear-gradient(#1db3ba9e, #42d5dc00);
+  background: -o-linear-gradient(#1db3ba9e, #42d5dc00);
+  background: linear-gradient(#1db3ba9e, #42d5dc00);
+  margin: 0 !important;
+  background: linear-gradient(#1363679e, #42d5dc00);
+
+}
+
+.navbar h4 {
+  color: white;
+}
+
+.navbar .active {
+  color: #cac5c5;
+}
+
+h1{
+  font-family: 'siblings';
+  font-size: 10.5rem;
+  color: white;
+}
+
+h3{
+  color: white;
+  margin-top: -30px;
+}
+
+
 
 .carousel-control-prev, .carousel-control-next {
     width: 5%;
@@ -21,17 +75,35 @@ iframe  {
     border-radius: 5px;
 }
 
+img{
+  z-index: -1;
+  position: fixed; 
+  bottom: 0px;
+  right: 15px;
+  width: 500px;
+}
 
 
 
 </style>
-    <div class='px-lg-5 socialMediaContainer'></div>
-      <!-- <div class="mx-lg-5 px-lg-5">
-        <div class='maxbye1 row'></div>
-      </div> -->
+    <div class='navbar pl-5 mx-2' >
+      <h4> 
+        <span class='home active' onclick='goHome()'> Home </span> &nbsp; | &nbsp; 
+      </h4>
+    </div>  
+    <div hidden class='px-lg-5 socialMediaContainer'></div>
+    <div class="row h-75 titleStraplineContainer">
+      <div class="my-auto pl-5 mx-5">
+        <h1 class='title'></h1>
+        <h3 class='strapline w-50'></h3>
+        <div class='button'></div>
+      </div>
+   </div>
+
+    
+    <img class='girlsImg' src="img/girls.png" alt="">
     
 
-    <!-- <script async src="http://www.instagram.com/embed.js"></script> -->
     <script type="text/javascript" src="http://www.instagram.com/embed.js"></script>
     <script type="text/javascript" src="js/tabletop.js"></script>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -44,7 +116,46 @@ iframe  {
     
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1Z-SoG-sG5wDFcI9UFstDt2pB5RgqPUWaR22sZABwasA/pubhtml';
 
+      function showWall(int){
+        
+        
       
+        $('.girlsImg').css({'filter': 'blur(10px)'}); // blur the girls
+        $('.titleStraplineContainer').hide(); // hide content
+
+        // remove active from all links
+        for (var j = 0; j < navbarNum; j++){
+          $('.nav' + j).removeClass('active');
+          $('.page'+ j).hide();
+        }
+        $('.home').removeClass('active');
+        // add active
+        $('.nav' + int).addClass('active');
+
+        $('.socialMediaContainer').removeAttr('hidden');
+        $('.page'+ int).show();
+        
+        // adjust background to not get weird gradient issues
+        $('body').css({'height':'100%'});
+      }
+
+      function goHome(){
+        $('.girlsImg').css({'filter': 'blur(0px)'}); // unblur the girls
+        $('.titleStraplineContainer').show(); // show content
+
+        // remove active from all links
+        for (var j = 0; j < navbarNum; j++){
+          $('.nav' + j).removeClass('active');
+          $('.page'+ j).hide();
+        }
+        $('.home').addClass('active'); // add active to home
+        
+        $('.socialMediaContainer').attr('hidden', 'true');
+
+        // adjust background to not get weird gradient issues
+        $('body').css({'height':'100vh'});
+
+      }
 
       function init() {
         Tabletop.init({ 
@@ -55,15 +166,31 @@ iframe  {
       }
 
       window.addEventListener('DOMContentLoaded', init)
-      
+      var navbarNum;
       function showInfo(data) {
 
-        for (var j = 0; j < Object.keys(data[0]).length; j++){
-          var content = '';
-          for (var k = 0; k < data.length; k++){
-            content += "<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>";
+        $('.title').html(data[0]["Title"]);
+        $('.strapline').html(data[0]["Strapline"]);
+        $('.button').html(data[0]["Button"]);
+        navbarNum = Object.keys(data[0]).length
+        for (var j = 0; j < navbarNum; j++){
+          if(Object.keys(data[0])[j] !== "Title" && Object.keys(data[0])[j] !== "Strapline" && Object.keys(data[0])[j] !== "Button"){
+            var content = '';
+            var navcontent = '';
+            
+            // nav bar
+            navcontent += '<span class="nav'+ j +'" onclick="showWall(' + j + ')">' + Object.keys(data[0])[j] + '</span>';
+            if(j !== (Object.keys(data[0]).length - 4)) {
+              navcontent += " &nbsp; | &nbsp; ";
+            }
+            
+            
+            for (var k = 0; k < data.length; k++){
+              content += "<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>";
+            }
+            $('.socialMediaContainer').append("<div class='row page" + j +  "'>" + content + "</div>");
+            $('.navbar h4').append(navcontent);
           }
-          $('.socialMediaContainer').append("<div class='row page" + j +  "'>" + content + "</div>");
         }
         twttr.widgets.load();
         window.instgrm.Embeds.process();
