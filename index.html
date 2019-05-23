@@ -7,6 +7,7 @@
 
     <!-- Primary Meta Tags -->
     <title>Siblings Comedy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <meta name="title" content="Siblings Comedy">
     <meta name="description" content="Character comedians and IRL sisters made up of Maddy and Marina Bye.">
 
@@ -209,7 +210,7 @@ img{
             
             
             for (var k = 0; k < data.length; k++){
-              content += "<div class='col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>";
+              content += "<div class='my-2 m-md-0 col-lg-4 d-flex align-items-center justify-content-center'>" + data[k][Object.keys(data[k])[j]] + "</div>";
             }
             $('.socialMediaContainer').append("<div class='row page" + j +  "'>" + content + "</div>");
             $('.navbar h4').append(navcontent);
