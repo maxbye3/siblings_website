@@ -160,7 +160,11 @@ img{
         $('.page'+ int).show();
         
         // adjust background to not get weird gradient issues
-        // $('body').css({'height':'100%'});
+        if($(window).width() > 720){
+          $('body').css({'height':'100%'});
+        } else {
+          $('body').css({'background': '#5bd1d7'});          
+        }
       }
 
       function goHome(){
@@ -177,7 +181,12 @@ img{
         $('.socialMediaContainer').attr('hidden', 'true');
 
         // adjust background to not get weird gradient issues
+        if($(window).width() > 720){
         $('body').css({'height':'100vh'});
+        } else {
+          $('body').css({'background': 'linear-gradient(#5bd1d7, #a6dfe2)'});          
+        }
+
 
       }
 
