@@ -1,5 +1,9 @@
     
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1Z-SoG-sG5wDFcI9UFstDt2pB5RgqPUWaR22sZABwasA/pubhtml';
+      // var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1Z-SoG-sG5wDFcI9UFstDt2pB5RgqPUWaR22sZABwasA/pubhtml';
+      // var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1Io6W5XitNvifEXER9ECTsbHhAjXsQLq6VEz7kSPDPiQ/edit?usp=sharing';
+
+      // https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2qq5UByYNkhsujdrWlDXtpSUhh7ovl0Ak6pyY3sWZqEaWS2lJ0iuqcag8iDLsoTuZ4XTiaEBtbbi0/pubhtml
+      // https://docs.google.com/spreadsheets/d/1Z-SoG-sG5wDFcI9UFstDt2pB5RgqPUWaR22sZABwasA/edit?usp=sharing
 
       function showWall(int){
         
@@ -51,12 +55,23 @@
 
       }
 
+      // function init() {
+      //   Tabletop.init({ 
+      //     key: public_spreadsheet_url,
+      //     callback: showInfo,
+      //     simpleSheet: true 
+      //   });
+      // }
+
       function init() {
-        Tabletop.init({ 
-          key: public_spreadsheet_url,
-          callback: showInfo,
-          simpleSheet: true 
-        });
+          Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQpL8frKHFnZKaHWL2Nyl2tSZ1brKCmi3c6fwYQCAWYPiZU-3_bbLxU_GxCDOE2JK4LzD5pda9V6b_o/pub?output=csv', {
+          download: true,
+          header: true,
+          complete: function(results) {
+            var data = results.data
+            showInfo(data)
+          }
+        })
       }
 
       window.addEventListener('DOMContentLoaded', init)
