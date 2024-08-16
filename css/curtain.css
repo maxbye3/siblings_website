@@ -1,0 +1,20 @@
+.curtain-left, .curtain-right {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.curtain-left {
+    left: -50%;
+    background-image: url('../img/right-curtain.png'); /* Replace with your left curtain image */
+}
+
+.curtain-right {
+    right: -50%;
+    background-image: url('../img/left-curtain.png'); /* Replace with your right curtain image */
+}

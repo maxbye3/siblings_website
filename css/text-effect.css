@@ -1,0 +1,42 @@
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+/* Define the stripe size and colors */
+:root {
+  --stripe-size: 20px;
+  --stripe-color1: red;
+  --stripe-color2: purple;
+}
+
+.animated-stripes {
+  font-family: siblings;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15vw;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(
+    -45deg, 
+    var(--stripe-color2) 25%, 
+    var(--stripe-color1) 25%, 
+    var(--stripe-color1) 50%, 
+    var(--stripe-color2) 50%, 
+    var(--stripe-color2) 75%, 
+    var(--stripe-color1) 75%, 
+    var(--stripe-color1) 100%);
+    padding: 20px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: var(--stripe-size) var(--stripe-size);
+  background-position: 0 0;
+  animation: stripe-animation 0.75s linear infinite;
+  text-shadow: 3px 3px #ffffff;
+}
+
+@keyframes stripe-animation {
+  100% { 
+    background-position: var(--stripe-size) 0;
+  }
+}
