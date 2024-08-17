@@ -10,11 +10,15 @@ html, body {
   --stripe-color2: purple;
 }
 
-.animated-stripes {
+
+.siblings {
   font-family: siblings;
+  font-size: 15vw;
+}
+
+.animated-stripes {
   text-align: center;
   font-weight: normal;
-  font-size: 15vw;
   line-height: 1;
   margin: 0;
   background: linear-gradient(
@@ -33,6 +37,11 @@ html, body {
   background-position: 0 0;
   animation: stripe-animation 0.75s linear infinite;
   text-shadow: 3px 3px #ffffff;
+}
+
+
+h5{
+  font-size: 4vw;
 }
 
 @keyframes stripe-animation {

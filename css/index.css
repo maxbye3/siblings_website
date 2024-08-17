@@ -5,6 +5,18 @@ body, html {
     height: 100%;
 }
 
+button {
+    padding: 3vw;
+    font-size: 3em !important;
+    border-radius: 20px;
+    border: yellow solid 3px;
+    background: #ffffff;
+    color: #615f5f;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    box-shadow: 5px 5px #888;
+}
+
 @font-face {
     font-family: siblings;
     src: url(css/siblings.ttf);
@@ -28,7 +40,7 @@ body {
     align-items: center;  /* Center content vertically */
     justify-content: center;  /* Center content horizontally */
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for content */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for content */
     border-radius: 10px;
 }
 
