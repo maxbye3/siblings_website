@@ -38,6 +38,187 @@ h4 {
     font-family: ComicNeueSans, Arial, sans-serif;
 }
 
+/* Desktop Navigation */
+.desktop-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+    border-bottom: 2px solid #ffff00;
+}
+
+.desktop-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.desktop-nav-logo {
+    flex: 0 0 auto;
+}
+
+.desktop-nav-logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.desktop-nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav-item {
+    margin: 0;
+}
+
+.desktop-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'SundaySchool', Arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.desktop-nav-link:hover {
+    color: #000000;
+    background-color: #ffff00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 0, 0.3);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+    border-bottom: 2px solid #ffff00;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Desktop navigation - show desktop nav */
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}
+
+.nav-logo {
+    flex: 1;
+}
+
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #ffff00;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid #ffff00;
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'SundaySchool', Arial, sans-serif;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 0, 0.1);
+    border-left-color: #ffff00;
+    color: #ffff00;
+}
+
 /* Full screen background */
 body {
     background-image: url('../img/dance.png');
@@ -58,6 +239,7 @@ body {
 .main-content {
     min-height: 100vh;
     position: relative;
+    padding-top: 60px;
 }
 
 /* Hero section with logo */
@@ -188,6 +370,39 @@ body {
     font-size: 1.1em;
     color: #333;
     font-weight: normal;
+}
+
+/* About section styles */
+.about-section {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 80px 20px;
+    border-top: 3px solid #ffff00;
+    border-bottom: 3px solid #ffff00;
+    position: relative;
+    z-index: 1;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.about-content p {
+    font-family: 'SundaySchool', Arial, sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    margin: 0;
 }
 
 /* Reviews section styles */
@@ -442,6 +657,71 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(15px);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid #ffff00;
+    }
+
+    .nav-list {
+        display: block;
+        padding: 20px 0;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-left: 3px solid transparent;
+        border-bottom: none;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 0, 0.1);
+        border-left-color: #ffff00;
+        border-bottom-color: transparent;
+    }
+
+    .main-content {
+        padding-top: 60px;
+    }
+
+    .about-section {
+        padding: 60px 15px;
+    }
+
+    .about-content h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .about-content p {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
     .reviews-main-heading {
         font-size: 2.2em;
         margin-bottom: 30px;

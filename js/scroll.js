@@ -61,3 +61,78 @@ window.addEventListener('scroll', onScroll);
 
 // Check on page load
 document.addEventListener('DOMContentLoaded', handleScrollAnimation);
+
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const desktopNavLinks = document.querySelectorAll('.desktop-nav-link');
+
+    // Toggle mobile menu
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function () {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function (event) {
+        const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
+        if (!isClickInsideNav && navMenu.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Smooth scrolling for mobile anchor links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Always account for fixed navbar (60px height)
+                    const offsetTop = targetElement.offsetTop - 60;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Smooth scrolling for desktop anchor links
+    desktopNavLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Always account for fixed navbar (60px height)
+                    const offsetTop = targetElement.offsetTop - 60;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});

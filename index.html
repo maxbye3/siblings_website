@@ -55,10 +55,57 @@
         }
     </style>
 
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="desktop-nav-container">
+            <div class="desktop-nav-logo">
+                <img src="img/siblings-logo.png" alt="Siblings Logo" class="desktop-nav-logo-img">
+            </div>
+            <ul class="desktop-nav-list">
+                <li class="desktop-nav-item">
+                    <a href="#home" class="desktop-nav-link">Home</a>
+                </li>
+                <li class="desktop-nav-item">
+                    <a href="#about" class="desktop-nav-link">Who are Siblings</a>
+                </li>
+                <li class="desktop-nav-item">
+                    <a href="#reviews" class="desktop-nav-link">Reviews & Quotes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="img/siblings-logo.png" alt="Siblings Logo" class="nav-logo-img">
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Who are Siblings</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link">Reviews & Quotes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="main-content">
-        <div class="hero-section">
+        <div class="hero-section" id="home">
             <img src="img/siblings-logo.png" alt="Siblings Logo" class="dancing-logo">
-            <div class="show-buttons">
+            <div class="show-buttons" id="shows">
                 <a href="https://brightondome.org/whats-on/LdY-siblings-dreamweavers/" target="_blank"
                     class="show-btn brighton">
                     <h3>Brighton Comedy Festival</h3>
@@ -76,7 +123,17 @@
         </div>
     </div>
 
-    <section class="reviews-section">
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>Who are Siblings</h2>
+            <p>Siblings is an award winning, critically acclaimed cacophony of character and sketch made up of comedians
+                and IRL sisters Maddy & Marina Bye. Marina studied at Guildhall School of Music and Drama whilst Maddy
+                studied at the same time at the Parisian Clown School Ecole Philippe Gaulier. Together, they make
+                something ridiculous.</p>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="reviews">
         <h2 class="reviews-main-heading">Reviews & Quotes</h2>
         <div class="reviews-content">
             <div class="reviews-column">
@@ -195,7 +252,7 @@
 
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="contact-section">
                 <div class="email-group">
