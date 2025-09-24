@@ -1,6 +1,13 @@
-// Scroll animation handler for girls section
+// Mobile detection function
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+}
+
+// Scroll animation handler for girls section and show buttons
 function handleScrollAnimation() {
     const girlsSection = document.querySelector('.girls-section');
+    const showButtons = document.querySelector('.show-buttons');
 
     if (!girlsSection) return;
 
@@ -19,6 +26,20 @@ function handleScrollAnimation() {
 
     // Apply the new position
     girlsSection.style.bottom = newBottom + 'px';
+
+    // Handle show buttons fade effect (not on mobile devices)
+    if (showButtons && !isMobile()) {
+        // Calculate fade based on scroll distance from top
+        const fadeDistance = windowHeight * 0.3; // Start fading after 30% of viewport height
+        const fadeProgress = Math.min(scrollTop / fadeDistance, 1);
+
+        // Fade to 0.5 opacity as user scrolls
+        const opacity = 1 - (fadeProgress * 0.5); // Goes from 1 to 0.5
+        showButtons.style.opacity = opacity;
+    } else if (showButtons && isMobile()) {
+        // Keep buttons fully visible on mobile devices
+        showButtons.style.opacity = 1;
+    }
 }
 
 // Throttle scroll events for better performance
