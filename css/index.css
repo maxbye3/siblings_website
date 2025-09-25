@@ -675,6 +675,10 @@ body {
     border: 2px solid #ffff00;
 }
 
+.about-img {
+    max-width: 290px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .desktop-nav {
@@ -744,6 +748,7 @@ body {
         margin-top: 5px;
         z-index: -1;
     }
+
 
     .reviews-main-heading {
         font-size: 2.2em;

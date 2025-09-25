@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/curtain.css">
     <link rel="stylesheet" href="css/text-effect.css">
+    <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -66,10 +67,13 @@
                     <a href="#home" class="desktop-nav-link">Home</a>
                 </li>
                 <li class="desktop-nav-item">
-                    <a href="#reviews" class="desktop-nav-link">Reviews & Quotes</a>
+                    <a href="#about" class="desktop-nav-link">About</a>
                 </li>
                 <li class="desktop-nav-item">
-                    <a href="#about" class="desktop-nav-link">About</a>
+                    <a href="#gallery" class="desktop-nav-link">Gallery</a>
+                </li>
+                <li class="desktop-nav-item">
+                    <a href="#reviews" class="desktop-nav-link">Reviews & Quotes</a>
                 </li>
             </ul>
         </div>
@@ -93,10 +97,13 @@
                     <a href="#home" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#reviews" class="nav-link">Reviews & Quotes</a>
+                    <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link">Reviews & Quotes</a>
                 </li>
             </ul>
         </div>
@@ -280,6 +287,59 @@
         </div>
     </section>
 
+    <section class="photo-gallery-section" id="gallery">
+        <div class="gallery-container">
+            <div class="photo-grid">
+                <div class="photo-item" data-src="img/photos/1.jpg" data-alt="Siblings Photo 1">
+                    <img src="img/photos/1.jpg" alt="Siblings Photo 1" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/2.jpg" data-alt="Siblings Photo 2">
+                    <img src="img/photos/2.jpg" alt="Siblings Photo 2" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/3.jpg" data-alt="Siblings Photo 3">
+                    <img src="img/photos/3.jpg" alt="Siblings Photo 3" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/4.jpg" data-alt="Siblings Photo 4">
+                    <img src="img/photos/4.jpg" alt="Siblings Photo 4" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/5.jpg" data-alt="Siblings Photo 5">
+                    <img src="img/photos/5.jpg" alt="Siblings Photo 5" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/6.jpg" data-alt="Siblings Photo 6">
+                    <img src="img/photos/6.jpg" alt="Siblings Photo 6" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/7.jpg" data-alt="Siblings Photo 7">
+                    <img src="img/photos/7.jpg" alt="Siblings Photo 7" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/8.jpg" data-alt="Siblings Photo 8">
+                    <img src="img/photos/8.jpg" alt="Siblings Photo 8" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/9.jpg" data-alt="Siblings Photo 9">
+                    <img src="img/photos/9.jpg" alt="Siblings Photo 9" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/10.jpg" data-alt="Siblings Photo 10">
+                    <img src="img/photos/10.jpg" alt="Siblings Photo 10" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/12.jpg" data-alt="Siblings Photo 12">
+                    <img src="img/photos/12.jpg" alt="Siblings Photo 12" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/13.jpg" data-alt="Siblings Photo 13">
+                    <img src="img/photos/13.jpg" alt="Siblings Photo 13" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/14.jpg" data-alt="Siblings Photo 14">
+                    <img src="img/photos/14.jpg" alt="Siblings Photo 14" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/15.jpg" data-alt="Siblings Photo 15">
+                    <img src="img/photos/15.jpg" alt="Siblings Photo 15" class="gallery-img">
+                </div>
+                <div class="photo-item" data-src="img/photos/16.jpg" data-alt="Siblings Photo 16">
+                    <img src="img/photos/16.jpg" alt="Siblings Photo 16" class="gallery-img">
+                </div>
+            </div>
+            <img src="img/photos/foreground.png" alt="Siblings Foreground" class="gallery-foreground">
+        </div>
+    </section>
+
     <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="contact-section">
@@ -312,7 +372,20 @@
         </div>
     </footer>
 
+    <!-- Custom Photo Modal -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Gallery Image" class="modal-image">
+            <div class="modal-navigation">
+                <button id="prevBtn" class="nav-btn">&#8249;</button>
+                <button id="nextBtn" class="nav-btn">&#8250;</button>
+            </div>
+            <div class="modal-instructions">Click off the photo to close</div>
+        </div>
+    </div>
+
     <script src="js/scroll.js"></script>
+    <script src="js/gallery.js"></script>
 </body>
 
 </html>
