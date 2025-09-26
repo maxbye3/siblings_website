@@ -4,6 +4,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: #000000;
 }
 
 button {
@@ -221,18 +222,33 @@ h4 {
 
 /* Full screen background */
 body {
-    background-image: url('../img/dance.png');
-    /* Replace with your image */
-    background-size: cover;
-    /* Cover the entire screen */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Prevent repeating */
-    background-attachment: fixed;
-    /* Keep background fixed on scroll */
     font-family: Arial, sans-serif;
     color: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('../img/dance.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile background fixes */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+        background-position: center top;
+        background-attachment: scroll;
+        background-attachment: fixed;
+    }
+}
+
+/* iPhone specific fixes */
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+    }
 }
 
 /* Main content container */
@@ -252,14 +268,13 @@ body {
     text-align: center;
     border-radius: 10px;
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 /* Girls section - behind the logo, flush to footer */
 .girls-section {
     position: absolute;
     bottom: -400px;
-    z-index: -1 !important;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -267,7 +282,7 @@ body {
     align-items: flex-end;
     justify-content: center;
     text-align: center;
-    z-index: 1;
+    z-index: 0;
     padding-bottom: 0;
     transition: bottom 0.1s ease-out;
 }
@@ -335,6 +350,8 @@ body {
     margin-top: 40px;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 }
 
 .show-btn {
@@ -480,6 +497,7 @@ body {
 .review-quotes {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .review-quote {
@@ -489,12 +507,13 @@ body {
     color: #ffffff;
     margin: 0 0 15px 0;
     padding: 12px 0;
-    border-left: 3px solid #87ceeb;
     padding-left: 15px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .review-quote .publication {
+    display: block;
+    margin-top: 0;
     color: #87ceeb;
     font-weight: bold;
     font-style: italic;
@@ -513,6 +532,9 @@ body {
 
 .review-girls {
     max-width: 100%;
+    margin-bottom: -200px;
+    opacity: 0;
+    transition: margin-bottom 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 
@@ -760,6 +782,14 @@ body {
         gap: 40px;
     }
 
+    .reviews-column:first-child {
+        order: 1;
+    }
+
+    .reviews-column:last-child {
+        order: 0;
+    }
+
     .reviews-section {
         padding: 40px 15px;
     }
@@ -815,5 +845,19 @@ body {
 
     .social-btn {
         width: 200px;
+    }
+}
+
+/* Hide img/photos/16.jpg between 768px and 1200px */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .photo-item[data-src="img/photos/16.jpg"] {
+        display: none;
+    }
+}
+
+/* Hide .hide16 between 768px and larger than 1200px */
+@media (min-width: 768px) and (min-width: 1201px) {
+    .hide16 {
+        display: none !important;
     }
 }

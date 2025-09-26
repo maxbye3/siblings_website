@@ -4,10 +4,11 @@ function isMobile() {
         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 }
 
-// Scroll animation handler for girls section and show buttons
+// Scroll animation handler for girls section, show buttons, and review girls
 function handleScrollAnimation() {
     const girlsSection = document.querySelector('.girls-section');
     const showButtons = document.querySelector('.show-buttons');
+    const reviewGirls = document.querySelector('.review-girls');
 
     if (!girlsSection) return;
 
@@ -39,6 +40,31 @@ function handleScrollAnimation() {
     } else if (showButtons && isMobile()) {
         // Keep buttons fully visible on mobile devices
         showButtons.style.opacity = 1;
+    }
+
+    // Handle review girls animation (similar to girls-section)
+    if (reviewGirls) {
+        const reviewsSection = document.querySelector('.reviews-section');
+        if (reviewsSection) {
+            const reviewsRect = reviewsSection.getBoundingClientRect();
+            const reviewsTop = reviewsRect.top;
+            const reviewsHeight = reviewsRect.height;
+
+            // Calculate when to start animation (when reviews section comes into view)
+            const startPoint = windowHeight;
+            const endPoint = windowHeight * 0.3; // Animation completes when section is 30% visible
+
+            // Calculate scroll progress for this section
+            const sectionScrollProgress = Math.min(Math.max((startPoint - reviewsTop) / (startPoint - endPoint), 0), 1);
+
+            // Calculate new margin-bottom and opacity based on scroll progress
+            const newMarginBottom = -200 + (sectionScrollProgress * 200); // From -200px to 0px
+            const newOpacity = sectionScrollProgress; // From 0 to 1
+
+            // Apply the animation
+            reviewGirls.style.marginBottom = `${newMarginBottom}px`;
+            reviewGirls.style.opacity = newOpacity;
+        }
     }
 }
 
