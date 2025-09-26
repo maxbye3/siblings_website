@@ -19,7 +19,8 @@
     position: relative;
 }
 
-.gallery-foreground {
+.gallery-foreground,
+.gallery-foreground-animated {
     display: block;
     margin-left: auto;
     margin-right: 0;
@@ -31,12 +32,21 @@
     pointer-events: none;
 }
 
-@media (min-width: 1201px) {
-    .gallery-foreground {
-        margin-bottom: -120px;
-    }
+.gallery-foreground {
+    visibility: hidden;
 }
 
+.gallery-foreground-animated {
+    position: absolute;
+    right: 0px;
+    bottom: -400px;
+    z-index: -1;
+    transition: bottom 0.5s ease-out;
+}
+
+.gallery-foreground-animated.animate {
+    bottom: 115px;
+}
 
 .gallery-title {
     text-align: center;

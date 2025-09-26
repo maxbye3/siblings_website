@@ -4,12 +4,13 @@ function isMobile() {
         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 }
 
-// Scroll animation handler for girls section, show buttons, review girls, and about image
+// Scroll animation handler for girls section, show buttons, review girls, about image, and gallery foreground
 function handleScrollAnimation() {
     const girlsSection = document.querySelector('.girls-section');
     const showButtons = document.querySelector('.show-buttons');
     const reviewGirls = document.querySelector('.review-girls');
     const aboutImgAnimated = document.querySelector('.about-img-animated');
+    const galleryForegroundAnimated = document.querySelector('.gallery-foreground-animated');
 
     if (!girlsSection) return;
 
@@ -90,6 +91,23 @@ function handleScrollAnimation() {
 
             // Apply the animation
             aboutImgAnimated.style.bottom = `${newBottom}px`;
+        }
+    }
+
+    // Handle gallery foreground animation
+    if (galleryForegroundAnimated) {
+        const triggerElement = document.getElementById('trigger-gallery-animation');
+        if (triggerElement) {
+            const triggerRect = triggerElement.getBoundingClientRect();
+            const triggerTop = triggerRect.top;
+
+            // Check if trigger element is in view (when it's 50% visible)
+            const triggerVisible = triggerTop < windowHeight * 0.5;
+
+            if (triggerVisible && !galleryForegroundAnimated.classList.contains('animate')) {
+                // Add the animate class to trigger the CSS transition
+                galleryForegroundAnimated.classList.add('animate');
+            }
         }
     }
 }
