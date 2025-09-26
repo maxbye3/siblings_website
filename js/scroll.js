@@ -4,11 +4,12 @@ function isMobile() {
         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 }
 
-// Scroll animation handler for girls section, show buttons, and review girls
+// Scroll animation handler for girls section, show buttons, review girls, and about image
 function handleScrollAnimation() {
     const girlsSection = document.querySelector('.girls-section');
     const showButtons = document.querySelector('.show-buttons');
     const reviewGirls = document.querySelector('.review-girls');
+    const aboutImgAnimated = document.querySelector('.about-img-animated');
 
     if (!girlsSection) return;
 
@@ -57,13 +58,38 @@ function handleScrollAnimation() {
             // Calculate scroll progress for this section
             const sectionScrollProgress = Math.min(Math.max((startPoint - reviewsTop) / (startPoint - endPoint), 0), 1);
 
-            // Calculate new margin-bottom and opacity based on scroll progress
+            // Calculate new margin-bottom, opacity, and rotation based on scroll progress
             const newMarginBottom = -200 + (sectionScrollProgress * 200); // From -200px to 0px
             const newOpacity = sectionScrollProgress; // From 0 to 1
+            const newRotation = 90 - (sectionScrollProgress * 90); // From 90deg to 0deg
 
             // Apply the animation
             reviewGirls.style.marginBottom = `${newMarginBottom}px`;
             reviewGirls.style.opacity = newOpacity;
+            reviewGirls.style.transform = `rotate(${newRotation}deg)`;
+        }
+    }
+
+    // Handle about image animation
+    if (aboutImgAnimated) {
+        const aboutSection = document.querySelector('.about-section');
+        if (aboutSection) {
+            const aboutRect = aboutSection.getBoundingClientRect();
+            const aboutTop = aboutRect.top;
+            const aboutHeight = aboutRect.height;
+
+            // Calculate when to start animation (when about section comes into view)
+            const startPoint = windowHeight;
+            const endPoint = windowHeight * 0.3; // Animation completes when section is 30% visible
+
+            // Calculate scroll progress for this section
+            const aboutScrollProgress = Math.min(Math.max((startPoint - aboutTop) / (startPoint - endPoint), 0), 1);
+
+            // Calculate new bottom position (-400px to 0px)
+            const newBottom = -400 + (aboutScrollProgress * 400);
+
+            // Apply the animation
+            aboutImgAnimated.style.bottom = `${newBottom}px`;
         }
     }
 }
