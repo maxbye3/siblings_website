@@ -1,0 +1,55 @@
+/* About section styles */
+.about-section {
+    background-image: url('../img/about/bg/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    padding-bottom: 0;
+    border-top: 3px solid #ffff00;
+    border-bottom: 3px solid #ffff00;
+    position: relative;
+    z-index: 1;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: -4px;
+}
+
+.about-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.about-content p {
+    font-family: 'SundaySchool', Arial, sans-serif;
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    margin-top: 20px;
+}
+
+.about-img {
+    max-width: 290px;
+}

@@ -1,0 +1,188 @@
+/* Desktop navigation - show desktop nav */
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Mobile background fixes */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;
+        background-position: center top;
+        background-attachment: scroll;
+        background-attachment: fixed;
+    }
+}
+
+/* iPhone specific fixes */
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(15px);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid #ffff00;
+    }
+
+    .nav-list {
+        display: block;
+        padding: 20px 0;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-left: 3px solid transparent;
+        border-bottom: none;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 0, 0.1);
+        border-left-color: #ffff00;
+        border-bottom-color: transparent;
+    }
+
+    .main-content {
+        padding-top: 60px;
+    }
+
+    .about-content h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .about-content p {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .about-img {
+        width: 290px;
+        margin-top: 5px;
+        z-index: -1;
+    }
+
+    .reviews-main-heading {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .reviews-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .reviews-column:first-child {
+        order: 1;
+    }
+
+    .reviews-column:last-child {
+        order: 0;
+    }
+
+    .reviews-section {
+        padding: 40px 15px;
+    }
+
+    .reviews-column h3 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .review-quote,
+    .review-rating {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    .show-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .show-btn {
+        min-width: 280px;
+        padding: 15px 25px;
+    }
+
+    .show-btn h3 {
+        font-size: 1.3em;
+    }
+
+    .show-btn p {
+        font-size: 1em;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-group {
+        min-width: 100%;
+    }
+
+    .footer h3 {
+        font-size: 2em;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-btn {
+        width: 200px;
+    }
+}
+
+/* Hide img/photos/16.jpg between 768px and 1200px */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .photo-item[data-src="img/photos/16.jpg"] {
+        display: none;
+    }
+}
+
+/* Hide .hide16 between 768px and larger than 1200px */
+@media (min-width: 768px) and (min-width: 1201px) {
+    .hide16 {
+        display: none !important;
+    }
+}

@@ -1,0 +1,169 @@
+/* Desktop Navigation */
+.desktop-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+    border-bottom: 2px solid #ffff00;
+}
+
+.desktop-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.desktop-nav-logo {
+    flex: 0 0 auto;
+}
+
+.desktop-nav-logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.desktop-nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav-item {
+    margin: 0;
+}
+
+.desktop-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'SundaySchool', Arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.desktop-nav-link:hover {
+    color: #000000;
+    background-color: #ffff00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 0, 0.3);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+    border-bottom: 2px solid #ffff00;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    flex: 1;
+}
+
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #ffff00;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid #ffff00;
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'SundaySchool', Arial, sans-serif;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 0, 0.1);
+    border-left-color: #ffff00;
+    color: #ffff00;
+}

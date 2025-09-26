@@ -1,0 +1,58 @@
+/* Reset margin and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #000000;
+}
+
+button {
+    padding: 3vw;
+    font-size: 3em !important;
+    border-radius: 20px;
+    border: yellow solid 3px;
+    background: #ffffff;
+    color: #615f5f;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    box-shadow: 5px 5px #888;
+}
+
+@font-face {
+    font-family: ComicNeueSans;
+    src: url('../fonts/ComicNeueSansID.ttf');
+}
+
+@font-face {
+    font-family: 'SundaySchool';
+    src: url('../fonts/SUNDAYSCHOOL.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Use siblings font for h3 and h4 elements */
+h2,
+h3,
+h4 {
+    font-family: ComicNeueSans, Arial, sans-serif;
+}
+
+/* Full screen background */
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Main content container */
+.main-content {
+    min-height: 100vh;
+    position: relative;
+    padding-top: 60px;
+    background-image: url('../img/dance.png');
+    background-size: cover;
+    background-position: center;
+}
