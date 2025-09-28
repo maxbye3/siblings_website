@@ -51,7 +51,9 @@
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%;
+        right: 0;
+        width: 100vw;
+        max-width: 100%;
         background-color: rgba(0, 0, 0, 0.98);
         backdrop-filter: blur(15px);
         transform: translateY(-100%);
@@ -59,6 +61,7 @@
         visibility: hidden;
         transition: all 0.3s ease;
         border-bottom: 2px solid #ffff00;
+        box-sizing: border-box;
     }
 
     .nav-list {

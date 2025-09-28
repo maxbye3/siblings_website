@@ -88,15 +88,14 @@
 
 .review-girls {
     max-width: 100%;
-    width: 90%;
     bottom: 0px;
-    transform: rotate(90deg);
-    transition: transform 0.5s ease, width 0.5s ease;
+    transform: rotate(180deg) scale(0.9);
+    transition: transform 0.5s ease;
+    pointer-events: none;
 }
 
 .review-girls.spinning {
-    transform: rotate(0deg);
-    width: 100%;
+    transform: rotate(0deg) scale(1);
 }
 
 .review-rating {
