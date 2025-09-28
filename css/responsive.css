@@ -123,6 +123,12 @@
 
     .reviews-section {
         padding: 40px 15px;
+        overflow: hidden;
+    }
+
+    .review-girls {
+        max-width: 90%;
+        margin: 0 auto;
     }
 
     .reviews-column h3 {

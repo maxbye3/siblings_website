@@ -54,6 +54,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .review-quote {
@@ -92,10 +94,12 @@
     transform: rotate(180deg) scale(0.9);
     transition: transform 0.5s ease;
     pointer-events: none;
+    transform-origin: center center;
+    will-change: transform;
 }
 
 .review-girls.spinning {
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(0.8);
 }
 
 .review-rating {
