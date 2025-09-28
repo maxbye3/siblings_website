@@ -44,53 +44,72 @@ function handleScrollAnimation() {
         showButtons.style.opacity = 1;
     }
 
-    // Handle review girls animation (similar to girls-section)
+    // Handle review girls spinning animation
     if (reviewGirls) {
-        const reviewsSection = document.querySelector('.reviews-section');
-        if (reviewsSection) {
-            const reviewsRect = reviewsSection.getBoundingClientRect();
-            const reviewsTop = reviewsRect.top;
-            const reviewsHeight = reviewsRect.height;
+        const triggerElement = document.getElementById('trigger-review-animation');
+        if (triggerElement) {
+            const triggerRect = triggerElement.getBoundingClientRect();
+            const triggerTop = triggerRect.top;
+            const triggerBottom = triggerRect.bottom;
 
-            // Calculate when to start animation (when reviews section comes into view)
-            const startPoint = windowHeight;
-            const endPoint = windowHeight * 0.3; // Animation completes when section is 30% visible
+            // Different trigger thresholds for mobile vs desktop
+            const isMobileDevice = isMobile();
+            const triggerThreshold = isMobileDevice ? windowHeight * 0.8 : windowHeight * 0.9;
 
-            // Calculate scroll progress for this section
-            const sectionScrollProgress = Math.min(Math.max((startPoint - reviewsTop) / (startPoint - endPoint), 0), 1);
+            // Check if trigger element is properly in view
+            const triggerInView = triggerTop < triggerThreshold && triggerBottom > (windowHeight - triggerThreshold);
 
-            // Calculate new margin-bottom, opacity, and rotation based on scroll progress
-            const newMarginBottom = -200 + (sectionScrollProgress * 200); // From -200px to 0px
-            const newOpacity = sectionScrollProgress; // From 0 to 1
-            const newRotation = 90 - (sectionScrollProgress * 90); // From 90deg to 0deg
-
-            // Apply the animation
-            reviewGirls.style.marginBottom = `${newMarginBottom}px`;
-            reviewGirls.style.opacity = newOpacity;
-            reviewGirls.style.transform = `rotate(${newRotation}deg)`;
+            if (triggerInView && !reviewGirls.classList.contains('spinning')) {
+                // Add the spinning class to start the animation
+                reviewGirls.classList.add('spinning');
+            } else if (!triggerInView && reviewGirls.classList.contains('spinning')) {
+                // Remove the spinning class to stop the animation
+                reviewGirls.classList.remove('spinning');
+            }
+        } else {
+            // If trigger element doesn't exist, remove spinning class
+            if (reviewGirls.classList.contains('spinning')) {
+                reviewGirls.classList.remove('spinning');
+            }
         }
     }
 
     // Handle about image animation
     if (aboutImgAnimated) {
-        const aboutSection = document.querySelector('.about-section');
-        if (aboutSection) {
-            const aboutRect = aboutSection.getBoundingClientRect();
-            const aboutTop = aboutRect.top;
-            const aboutHeight = aboutRect.height;
+        const triggerElement = document.getElementById('trigger-about-animation');
+        if (triggerElement) {
+            const triggerRect = triggerElement.getBoundingClientRect();
+            const triggerTop = triggerRect.top;
+            const triggerBottom = triggerRect.bottom;
 
-            // Calculate when to start animation (when about section comes into view)
-            const startPoint = windowHeight;
-            const endPoint = windowHeight * 0.3; // Animation completes when section is 30% visible
+            // Different trigger thresholds for mobile vs desktop
+            const isMobileDevice = isMobile();
+            const triggerThreshold = isMobileDevice ? windowHeight * 0.8 : windowHeight * 0.9;
+            const endThreshold = isMobileDevice ? windowHeight * 0.5 : windowHeight * 0.4;
 
-            // Calculate scroll progress for this section
-            const aboutScrollProgress = Math.min(Math.max((startPoint - aboutTop) / (startPoint - endPoint), 0), 1);
+            // Check if the trigger element is properly in view
+            const triggerInView = triggerTop < triggerThreshold && triggerBottom > (windowHeight - triggerThreshold);
 
-            // Calculate new bottom position (-400px to 0px)
-            const newBottom = -400 + (aboutScrollProgress * 400);
+            if (triggerInView) {
+                // Calculate when to start animation based on trigger element position
+                const startPoint = triggerThreshold;
+                const endPoint = endThreshold;
 
-            // Apply the animation
-            aboutImgAnimated.style.bottom = `${newBottom}px`;
+                // Calculate scroll progress for this trigger element
+                const aboutScrollProgress = Math.min(Math.max((startPoint - triggerTop) / (startPoint - endPoint), 0), 1);
+
+                // Calculate new bottom position (-400px to 0px)
+                const newBottom = -400 + (aboutScrollProgress * 400);
+
+                // Apply the animation
+                aboutImgAnimated.style.bottom = `${newBottom}px`;
+            } else {
+                // Return to original position when trigger element is not in view
+                aboutImgAnimated.style.bottom = '-400px';
+            }
+        } else {
+            // If trigger element doesn't exist, keep image in original position
+            aboutImgAnimated.style.bottom = '-400px';
         }
     }
 

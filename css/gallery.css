@@ -41,7 +41,7 @@
     right: 0px;
     bottom: -400px;
     z-index: -1;
-    transition: bottom 0.5s ease-out;
+    transition: bottom 1s ease-out;
 }
 
 .gallery-foreground-animated.animate {

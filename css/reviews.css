@@ -93,6 +93,10 @@
     transition: transform 0.5s ease;
 }
 
+.review-girls.spinning {
+    transform: rotate(0deg);
+}
+
 .review-rating {
     font-family: 'SundaySchool', Arial, sans-serif;
     font-size: 1.1em;
