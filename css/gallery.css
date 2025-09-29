@@ -40,7 +40,8 @@
     position: absolute;
     right: 0px;
     bottom: -400px;
-    z-index: -1;
+    z-index: 0;
+    pointer-events: none;
     transition: bottom 1s ease-out;
 }
 

@@ -115,19 +115,36 @@ function handleScrollAnimation() {
 
     // Handle gallery foreground animation
     if (galleryForegroundAnimated) {
-        const triggerElement = document.getElementById('trigger-gallery-animation');
+        const triggerElement = document.querySelector('.trigger-gallery-animation');
         if (triggerElement) {
             const triggerRect = triggerElement.getBoundingClientRect();
             const triggerTop = triggerRect.top;
+            const triggerBottom = triggerRect.bottom;
 
-            // Check if trigger element is in view (when it's 50% visible)
-            const triggerVisible = triggerTop < windowHeight * 0.5;
+            // Check if trigger element is in view (simpler condition)
+            const triggerVisible = triggerTop < windowHeight * 0.8;
+
+            // Debug logging
+            console.log('Gallery trigger visible:', triggerVisible, 'Top:', triggerTop, 'Bottom:', triggerBottom, 'Window height:', windowHeight);
 
             if (triggerVisible && !galleryForegroundAnimated.classList.contains('animate')) {
                 // Add the animate class to trigger the CSS transition
                 galleryForegroundAnimated.classList.add('animate');
+                console.log('Added animate class to gallery foreground');
+            } else if (!triggerVisible && galleryForegroundAnimated.classList.contains('animate')) {
+                // Remove the animate class to move the image back
+                galleryForegroundAnimated.classList.remove('animate');
+                console.log('Removed animate class from gallery foreground');
+            }
+        } else {
+            console.log('Gallery trigger element not found');
+            // If trigger element doesn't exist, remove animate class
+            if (galleryForegroundAnimated.classList.contains('animate')) {
+                galleryForegroundAnimated.classList.remove('animate');
             }
         }
+    } else {
+        console.log('Gallery foreground animated element not found');
     }
 }
 
