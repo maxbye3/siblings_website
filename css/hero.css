@@ -11,6 +11,11 @@
     z-index: 10;
 }
 
+.hero-section h3 {
+    margin: 0;
+}
+
+
 /* Girls section - behind the logo, flush to footer */
 .girls-section {
     position: absolute;
@@ -29,7 +34,7 @@
 
 /* Dancing logo styles */
 .dancing-logo {
-    max-width: 50%;
+    max-width: 40%;
     max-height: 60vh;
     width: auto;
     height: auto;
