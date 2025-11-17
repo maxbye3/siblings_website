@@ -82,7 +82,7 @@
     }
 
     .main-content {
-        padding-top: 60px;
+        padding-top: 120px;
     }
 
     .about-content h2 {
@@ -155,11 +155,11 @@
     }
 
     .show-btn h3 {
-        font-size: 1.3em;
+        font-size: 1em;
     }
 
     .show-btn p {
-        font-size: 1em;
+        font-size: .9em;
     }
 
     .contact-section {

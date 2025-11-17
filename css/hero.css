@@ -29,7 +29,7 @@
 
 /* Dancing logo styles */
 .dancing-logo {
-    max-width: 80%;
+    max-width: 50%;
     max-height: 60vh;
     width: auto;
     height: auto;
@@ -115,7 +115,7 @@
 
 .show-btn h3 {
     margin: 0 0 10px 0;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bold;
     color: #000;
 }
