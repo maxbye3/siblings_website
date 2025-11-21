@@ -32,13 +32,13 @@ function handleScrollAnimation() {
 
     // Handle show buttons fade effect (not on mobile devices)
     if (showButtons && !isMobile()) {
-        // Calculate fade based on scroll distance from top
-        const fadeDistance = windowHeight * 0.3; // Start fading after 30% of viewport height
-        const fadeProgress = Math.min(scrollTop / fadeDistance, 1);
+        // BUTTONS FADE OUT AS USER SCROLLS DOWN
+        // const fadeDistance = windowHeight * 0.3; // Start fading after 30% of viewport height
+        // const fadeProgress = Math.min(scrollTop / fadeDistance, 1);
 
-        // Fade to 0.5 opacity as user scrolls
-        const opacity = 1 - (fadeProgress * 0.5); // Goes from 1 to 0.5
-        showButtons.style.opacity = opacity;
+        // // Fade to 0.5 opacity as user scrolls
+        // const opacity = 1 - (fadeProgress * 0.5); // Goes from 1 to 0.5
+        // showButtons.style.opacity = opacity;
     } else if (showButtons && isMobile()) {
         // Keep buttons fully visible on mobile devices
         showButtons.style.opacity = 1;

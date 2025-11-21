@@ -49,9 +49,9 @@ body {
 
 /* Main content container */
 .main-content {
-    min-height: 100vh;
+    padding-top: 50px;
+    min-height: 150vh;
     position: relative;
-    padding-top: 60px;
     background-image: url('../img/dance.png');
     background-size: cover;
     background-position: center;
