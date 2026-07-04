@@ -7,6 +7,11 @@
     .mobile-nav {
         display: none;
     }
+
+    /* Clears the fixed nav (~86px tall) so the dancing logo never renders behind it */
+    .main-content {
+        padding-top: 110px;
+    }
 }
 
 /* Mobile background fixes */
@@ -31,7 +36,7 @@
 
 @media (max-height: 400px) {
     .hero-section {
-        height: 130vh;
+        min-height: 130vh;
     }
 }
 
@@ -166,6 +171,13 @@
         font-size: .9em;
     }
 
+    .show-btn.finished::after {
+        font-size: .85em;
+        letter-spacing: 1px;
+        padding: 2px 8px;
+        border-width: 2px;
+    }
+
     .contact-section {
         flex-direction: column;
         align-items: center;
@@ -229,6 +241,16 @@
 @media (min-width: 768px) and (max-width: 1200px) {
     .photo-item[data-src="img/photos/16.jpg"] {
         display: none;
+    }
+}
+
+/* Shrink the finished stamp on tablet so it doesn't overwhelm the shorter cards */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .show-btn.finished::after {
+        font-size: .9em;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-width: 2px;
     }
 }
 

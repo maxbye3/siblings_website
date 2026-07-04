@@ -4,31 +4,15 @@ function isMobile() {
         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 }
 
-// Scroll animation handler for girls section, show buttons, review girls, about image, and gallery foreground
+// Scroll animation handler for show buttons, review girls, about image, and gallery foreground
 function handleScrollAnimation() {
-    const girlsSection = document.querySelector('.girls-section');
     const showButtons = document.querySelector('.show-buttons');
     const reviewGirls = document.querySelector('.review-girls');
     const aboutImgAnimated = document.querySelector('.about-img-animated');
     const galleryForegroundAnimated = document.querySelector('.gallery-foreground-animated');
 
-    if (!girlsSection) return;
-
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
-
-    // Start animation immediately when scrolling begins
-    // Animate over a shorter distance for more responsive feel
-    const animationDistance = windowHeight * 0.5; // Animate over half the viewport height
-
-    // Calculate scroll progress (0 to 1)
-    const scrollProgress = Math.min(Math.max(scrollTop / animationDistance, 0), 1);
-
-    // Calculate new bottom position (-300px to 0px)
-    const newBottom = -300 + (scrollProgress * 300);
-
-    // Apply the new position
-    girlsSection.style.bottom = newBottom + 'px';
 
     // Handle show buttons fade effect (not on mobile devices)
     if (showButtons && !isMobile()) {
@@ -167,6 +151,22 @@ window.addEventListener('scroll', onScroll);
 
 // Check on page load
 document.addEventListener('DOMContentLoaded', handleScrollAnimation);
+
+// Pop the girls photo into view once it scrolls onto screen
+document.addEventListener('DOMContentLoaded', function () {
+    const girlsSection = document.querySelector('.girls-section');
+    if (!girlsSection || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                girlsSection.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(girlsSection);
+});
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function () {
